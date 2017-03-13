@@ -1,0 +1,48 @@
+01
+enum ValidatorType {
+02
+    INT {
+03
+        public Validator create() {
+04
+            return new IntValidator();
+05
+        }
+06
+    },
+07
+    LOOKUPVALUE {
+08
+        public Validator create() {
+09
+            return new LookupValueValidator();
+10
+        }
+11
+    },
+12
+    DATE {
+13
+        public Validator create() {
+14
+            return new DateValidator();
+15
+        }
+16
+    };
+17
+    public Validator create() {
+18
+        return null;
+19
+    }
+20
+}
+21
+ 
+22
+public Validator newInstance(ValidatorType validatorType) {
+23
+    return validatorType.create();
+24
+}
